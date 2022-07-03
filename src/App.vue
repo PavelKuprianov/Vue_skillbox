@@ -1,7 +1,7 @@
 <template>
   <section class="catalog">
 
-    <ProductList v-bind:products="products" />
+    <ProductList :products="products" />
 
     <ul class="catalog__pagination pagination">
       <li class="pagination__item">
@@ -56,16 +56,23 @@
 </template>
 
 <script>
-import products from './data/products';
-import ProductList from './components/ProductList.vue';
+import products from '@/data/products';
+import ProductList from '@/components/ProductList.vue';
 
 export default {
   name: 'App',
   components: { ProductList },
   data() {
     return {
-      products,
+      page: 1,
+      productsPerPage: 3,
     };
+  },
+  computed: {
+    products() {
+      const offset = (this.page - 1) * this.productsPerPage;
+      return propducts.slice(offset, offset + this.productsPerPage);
+    },
   },
 };
 </script>
