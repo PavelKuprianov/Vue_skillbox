@@ -15,6 +15,7 @@
         :price-from.sync="filterPriceFrom"
         :price-to.sync="filterPriceTo"
         :category-id.sync="filterCategoryId"
+        :category-color.sync="filterCategoryColor"
       />
       <section class="catalog">
         <ProductList :products="products" />
@@ -40,6 +41,7 @@ export default {
       filterPriceFrom: 0,
       filterPriceTo: 0,
       filterCategoryId: 0,
+      filterCategoryColor: 0,
 
       page: 1,
       productsPerPage: 3,
@@ -48,6 +50,7 @@ export default {
   computed: {
     filteredProducts() {
       let filteredProducts = products;
+      console.log(filteredProducts);
       /* eslint-disable */
       if (this.filterPriceFrom > 0) {
         filteredProducts = filteredProducts.filter((product) => product.price > this.filterPriceFrom);
@@ -58,11 +61,19 @@ export default {
       }
 
       if (this.filterCategoryId) {
+
         filteredProducts = filteredProducts.filter((product) => product.categoryId === this.filterCategoryId);
       }
-      /* eslint-enable */
+      return filteredProducts;
+
+      if (this.filterCategoryColor) {
+        filteredProducts = filteredProducts.filter((product) => {
+          product.colors.filter((color) => color === this.filterCategoryColor)
+        });
+      }
       return filteredProducts;
     },
+    /* eslint-enable */
     products() {
       const offset = (this.page - 1) * this.productsPerPage;
       return this.filteredProducts.slice(offset, offset + this.productsPerPage);

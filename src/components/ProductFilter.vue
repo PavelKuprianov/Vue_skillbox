@@ -159,7 +159,7 @@ export default {
       currentCategoryId: 0,
     };
   },
-  props: ['priceFrom', 'priceTo', 'categoryId'],
+  props: ['priceFrom', 'priceTo', 'categoryId', 'categoryColor'],
   computed: {
     categories() {
       return categories;
