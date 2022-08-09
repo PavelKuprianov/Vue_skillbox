@@ -8,6 +8,7 @@ export default [
     colors: [
       '#73B6EA', '#8BE000', '#222',
     ],
+    categoryColor: [1, 4, 8],
   },
   {
     id: 2,
@@ -18,6 +19,7 @@ export default [
     colors: [
       '#F0F0F0', '#8BE000', '#73B6EA',
     ],
+    categoryColor: [7, 4, 1],
   },
   {
     id: 3,
@@ -26,6 +28,7 @@ export default [
     price: 21790,
     image: '/img/phone.jpg',
     colors: [],
+    categoryColor: [],
   },
   {
     id: 4,
@@ -36,6 +39,7 @@ export default [
     colors: [
       '#939393', '#FF6B00', '#222',
     ],
+    categoryColor: [3, 5, 8],
   },
   {
     id: 5,
@@ -44,6 +48,7 @@ export default [
     price: 14960,
     image: '/img/phone-2.jpg',
     colors: [],
+    categoryColor: [],
   },
   {
     id: 6,
@@ -52,6 +57,7 @@ export default [
     price: 8960,
     image: '/img/phone-3.jpg',
     colors: [],
+    categoryColor: [],
   },
   {
     id: 7,
@@ -62,6 +68,7 @@ export default [
     colors: [
       '#FFBE15', '#8BE000', '#FF6B00',
     ],
+    categoryColor: [2, 4, 5],
   },
   {
     id: 8,
@@ -72,6 +79,7 @@ export default [
     colors: [
       '#939393', '#F0F0F0',
     ],
+    categoryColor: [3, 7],
   },
   {
     id: 9,
@@ -82,6 +90,7 @@ export default [
     colors: [
       '#222', '#73B6EA',
     ],
+    categoryColor: [8, 1],
   },
   {
     id: 10,
@@ -92,6 +101,7 @@ export default [
     colors: [
       '#FFBE15', '#8BE000', '#222',
     ],
+    categoryColor: [2, 4, 8],
   },
   {
     id: 11,
@@ -100,6 +110,7 @@ export default [
     price: 16560,
     image: '/img/airpods.jpg',
     colors: [],
+    categoryColor: [],
   },
   {
     id: 12,
@@ -110,5 +121,6 @@ export default [
     colors: [
       '#222', '#FF6B00',
     ],
+    categoryColor: [8, 5],
   },
 ];

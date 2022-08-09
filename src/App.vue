@@ -67,7 +67,9 @@ export default {
       return filteredProducts;
 
       if (this.filterCategoryColor) {
+
         filteredProducts = filteredProducts.filter((product) => {
+          console.log(this.filterCategoryColor)
           product.colors.filter((color) => color === this.filterCategoryColor)
         });
       }
