@@ -1,3 +1,4 @@
+<!-- eslint-disable -->
 <template>
   <div class="catalog__list">
     <li class="catalog__item" >
@@ -15,15 +16,22 @@
                 {{ product.price }} ₽
               </span>
 
-      <ul class="colors colors--black">
-        <ProductColor v-for="(color, index) in product.colors" :color="color" :key="index"/>
+      <ul class="colors colors--black" >
+<!--        <li class="colors__item" v-for="(color, index) in product.colors" :key="index" :color="color">-->
+<!--          <label class="colors__label">-->
+<!--            <input class="colors__radio sr-only" type="radio" name="color">-->
+<!--            <span class="colors__value" :style="{ background: color }"></span>-->
+<!--          </label>-->
+<!--        </li>-->
+        <ProductColor v-for="(color, index) in product.colors" :key="index" :color="color" />
       </ul>
     </li>
   </div>
 </template>
 
 <script>
-import ProductColor from '@/components/ProductColor.vue';
+
+import ProductColor from './ProductColor.vue';
 
 export default {
   components: { ProductColor },

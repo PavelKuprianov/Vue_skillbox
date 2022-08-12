@@ -1,17 +1,23 @@
+<!-- eslint-disable -->
 <template>
-  <li class="colors__item">
-    <label class="colors__label"> <!-- eslint-disable-line -->
-      <input class="colors__radio sr-only" type="radio" value="color" >
+  <li class="colors__item" >
+    <label class="colors__label">
+      <input class="colors__radio sr-only" type="radio" name="color" @click="selectedColor" :value="color.code">
+<!--             v-model.number="currentColor"  >-->
       <span class="colors__value" :style="{ background: color }"></span>
     </label>
   </li>
 </template>
 
 <script>
-// import products from '@/data/products';
 export default {
   name: 'ProductColor',
   props: ['color'],
+  methods: {
+    selectedColor() {
+      this.$emit('selected', this.value);
+    },
+  },
 };
 </script>
 
