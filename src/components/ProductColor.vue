@@ -2,17 +2,19 @@
 <template>
   <li class="colors__item" >
     <label class="colors__label">
-      <input class="colors__radio sr-only" type="radio" name="color" @click="selectedColor" :value="color.code">
+      <input v-for="color in colors" :key="color.id" class="colors__radio sr-only" type="radio"
+      name="color" v-model="computedColor" :value="color.id">
 <!--             v-model.number="currentColor"  >-->
-      <span class="colors__value" :style="{ background: color }"></span>
+     <span class="colors__value" :style="{ background: color }"></span>
     </label>
   </li>
 </template>
 
 <script>
+// import colors from '@/data/colors.js';
 export default {
   name: 'ProductColor',
-  props: ['color'],
+  props: ['colors'],
   methods: {
     selectedColor() {
       this.$emit('selected', this.value);
