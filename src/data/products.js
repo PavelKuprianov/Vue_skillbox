@@ -6,7 +6,18 @@ export default [
     price: 3690,
     image: '/img/radio.jpg',
     colors: [
-      '#73B6EA', '#8BE000', '#222',
+      {
+        id: 1,
+        code: '#73B6EA',
+      },
+      {
+        id: 4,
+        code: '#8BE000',
+      },
+      {
+        id: 8,
+        code: '#222',
+      },
     ],
   },
   {
@@ -16,7 +27,18 @@ export default [
     price: 5660,
     image: '/img/toothbrush.jpg',
     colors: [
-      '#F0F0F0', '#8BE000', '#73B6EA',
+      {
+        id: 7,
+        code: '#F0F0F0',
+      },
+      {
+        id: 4,
+        code: '#8BE000',
+      },
+      {
+        id: 1,
+        code: '#73B6EA',
+      },
     ],
   },
   {
@@ -34,7 +56,18 @@ export default [
     price: 24690,
     image: '/img/board.jpg',
     colors: [
-      '#939393', '#FF6B00', '#222',
+      {
+        id: 3,
+        code: '#939393',
+      },
+      {
+        id: 5,
+        code: '#FF6B00',
+      },
+      {
+        id: 8,
+        code: '#222',
+      },
     ],
   },
   {
@@ -60,7 +93,18 @@ export default [
     price: 39900,
     image: '/img/bicycle.jpg',
     colors: [
-      '#FFBE15', '#8BE000', '#FF6B00',
+      {
+        id: 2,
+        code: '#FFBE15',
+      },
+      {
+        id: 4,
+        code: '#8BE000',
+      },
+      {
+        id: 5,
+        code: '#FF6B00',
+      },
     ],
   },
   {
@@ -70,7 +114,14 @@ export default [
     price: 34900,
     image: '/img/wheels.jpg',
     colors: [
-      '#939393', '#F0F0F0',
+      {
+        id: 3,
+        code: '#939393',
+      },
+      {
+        id: 7,
+        code: '#F0F0F0',
+      },
     ],
   },
   {
@@ -80,7 +131,14 @@ export default [
     price: 4990,
     image: '/img/scooter.jpg',
     colors: [
-      '#222', '#73B6EA',
+      {
+        id: 8,
+        code: '#222',
+      },
+      {
+        id: 1,
+        code: '#73B6EA',
+      },
     ],
   },
   {
@@ -90,7 +148,18 @@ export default [
     price: 6690,
     image: '/img/ripstik.jpg',
     colors: [
-      '#FFBE15', '#8BE000', '#222',
+      {
+        id: 2,
+        code: '#FFBE15',
+      },
+      {
+        id: 4,
+        code: '#8BE000',
+      },
+      {
+        id: 8,
+        code: '#222',
+      },
     ],
   },
   {
@@ -108,7 +177,14 @@ export default [
     price: 30690,
     image: '/img/headphones.jpg',
     colors: [
-      '#222', '#FF6B00',
+      {
+        id: 8,
+        code: '#222',
+      },
+      {
+        id: 5,
+        code: '#FF6B00',
+      },
     ],
   },
 ];

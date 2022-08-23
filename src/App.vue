@@ -65,8 +65,9 @@ export default {
       }
 
       if (this.filterCategoryColor) {
-        filteredProducts = filteredProducts.filter((product) => product.colors.includes(this.filterCategoryColor,));
+        filteredProducts = filteredProducts.filter((product) => product.colors.find((el) => el.id === this.filterCategoryColor));
       }
+      // }
       return filteredProducts;
     },
     /* eslint-enable */

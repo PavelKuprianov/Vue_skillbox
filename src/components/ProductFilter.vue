@@ -29,21 +29,7 @@
 
       <fieldset class="form__block">
         <legend class="form__legend">Цвет</legend>
-        <ul class="colors">
-          <li class="colors__item" >
-            <label class="colors__label">
-              <ProductColor />
-<!--              <input class="colors__radio sr-only" type="radio" name="color" v-model.number="currentColor" :value="color.code" >-->
-              <span class="colors__value" :style="{ background: color.code }"></span>
-            </label>
-          </li>
-<!--              <ProductColor v-for="color in colors"-->
-<!--                            :key="color.id"-->
-<!--                            :color="color.code"-->
-<!--                            v-model.number="currentColor"-->
-<!--                            @selected = "getColor"-->
-<!--              />-->
-        </ul>
+        <ProductColor :colorsObj="colors" @current-color="currentColor = $event"/>
       </fieldset>
 
       <fieldset class="form__block">

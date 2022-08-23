@@ -1,23 +1,24 @@
 <!-- eslint-disable -->
 <template>
-  <li class="colors__item" >
-    <label class="colors__label">
-      <input v-for="color in colors" :key="color.id" class="colors__radio sr-only" type="radio"
-      name="color" v-model="computedColor" :value="color.id">
-<!--             v-model.number="currentColor"  >-->
-     <span class="colors__value" :style="{ background: color }"></span>
-    </label>
-  </li>
+  <ul class="colors colors--black" >
+    <li class="colors__item" v-for="color in colorsObj" :key="color.id" >
+      <label class="colors__label">
+        <input class="colors__radio sr-only" type="radio" name="color" @click="selectedColor(color.id)" >
+<!--        <input v-for="color in colors" :key="color.id" type="radio" v-model="computedColor" :value="color.id">-->
+        <span class="colors__value" :style="{ background: color.code }"></span>
+      </label>
+    </li>
+  </ul>
+
 </template>
 
 <script>
-// import colors from '@/data/colors.js';
 export default {
   name: 'ProductColor',
-  props: ['colors'],
+  props: ['colorsObj'],
   methods: {
-    selectedColor() {
-      this.$emit('selected', this.value);
+    selectedColor(currentColor) {
+      this.$emit('current-color', currentColor);
     },
   },
 };
