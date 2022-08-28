@@ -29,7 +29,7 @@
 
       <fieldset class="form__block">
         <legend class="form__legend">Цвет</legend>
-        <ProductColor :colorsObj="colors" @current-color="currentColor = $event"/>
+        <ProductColor class="product-color--filter" :colorsObj="colors" v-model="currentCategoryColor"/>
       </fieldset>
 
       <fieldset class="form__block">
@@ -115,7 +115,7 @@ export default {
       currentPriceFrom: 0,
       currentPriceTo: 0,
       currentCategoryId: 0,
-      currentColor: 0,
+      currentCategoryColor: 0,
     };
   },
   props: ['priceFrom', 'priceTo', 'categoryId', 'categoryColor'],
@@ -139,18 +139,18 @@ export default {
       this.currentCategoryId = value;
     },
     categoryColor(value) {
-      this.currentColor = value;
+      this.currentCategoryColor = value;
     },
   },
   methods: {
     getColor(value) {
-      this.currentColor = value;
+      this.currentCategoryColor = value;
     },
     submit() {
       this.$emit('update:priceFrom', this.currentPriceFrom);
       this.$emit('update:priceTo', this.currentPriceTo);
       this.$emit('update:categoryId', this.currentCategoryId);
-      this.$emit('update:categoryColor', this.currentColor);
+      this.$emit('update:categoryColor', this.currentCategoryColor);
     },
     reset() {
       this.$emit('update:priceFrom', 0);
@@ -165,5 +165,7 @@ export default {
 </script>
 
 <style scoped>
-
+.colors--black {
+  --border-color: #fff;
+}
 </style>

@@ -16,7 +16,7 @@
                 {{ product.price }} ₽
               </span>
 
-      <ProductColor :colorsObj="product.colors" />
+      <ProductColor :colorsObj="product.colors" v-model="currentCategoryColor" />
     </li>
   </div>
 </template>
@@ -32,6 +32,11 @@ export default {
       type: Object,
       required: true,
     },
+  },
+  data() {
+    return {
+      currentCategoryColor: 0,
+    };
   },
 };
 </script>
