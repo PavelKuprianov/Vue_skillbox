@@ -1,7 +1,7 @@
 <!-- eslint-disable -->
 <template>
   <ul class="colors colors--black" >
-    <li class="colors__item" v-for="color in colorsObj" :key="color.id" >
+    <li class="colors__item" v-for="color in productColors" :key="color.id" >
       <label class="colors__label">
         <input class="colors__radio sr-only" type="radio" name="color" v-model="computedColor" :value="color.id" />
         <span class="colors__value" :style="{ background: color.code }"></span>
@@ -14,11 +14,11 @@
 <script>
 export default {
   name: 'ProductColor',
-  props: ['colorsObj', 'currentColor', 'value'],
+  props: ['productColors', 'value'],
   computed: {
     computedColor: {
       get() {
-        return this.value.id;
+        return this.value;
       },
       set(value) {
         this.$emit('input', value);

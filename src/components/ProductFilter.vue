@@ -29,7 +29,7 @@
 
       <fieldset class="form__block">
         <legend class="form__legend">Цвет</legend>
-        <ProductColor class="product-color--filter" :colorsObj="colors" v-model="currentCategoryColor"/>
+        <ProductColor class="product-color--filter" :productColors="colors" v-model="currentCategoryColor"/>
       </fieldset>
 
       <fieldset class="form__block">

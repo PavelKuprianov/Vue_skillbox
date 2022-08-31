@@ -2,7 +2,7 @@
 <template>
   <div class="catalog__list">
     <li class="catalog__item" >
-      <a class="catalog__pic" href="#">
+      <a class="catalog__pic" href="#" @click.prevent="gotoPage('product', {id: product.id})">
         <img v-bind:src="product.image" v-bind:alt="product.title">
       </a>
 
@@ -13,16 +13,17 @@
       </h3>
 
       <span class="catalog__price">
-                {{ product.price }} ₽
+                {{ product.price | numberFormat }} ₽
               </span>
 
-      <ProductColor :colorsObj="product.colors" v-model="currentCategoryColor" />
+      <ProductColor :productColors="product.colors" v-model="currentCategoryColor" />
     </li>
   </div>
 </template>
 
 <script>
-
+import gotoPage from '@/helpers/gotoPage';
+import numberFormat from '@/helpers/numberFormat';
 import ProductColor from './ProductColor.vue';
 
 export default {
@@ -37,6 +38,12 @@ export default {
     return {
       currentCategoryColor: 0,
     };
+  },
+  filters: {
+    numberFormat,
+  },
+  methods: {
+    gotoPage,
   },
 };
 </script>
