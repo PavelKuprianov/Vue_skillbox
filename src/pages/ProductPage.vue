@@ -4,14 +4,14 @@
     <div class="content__top">
       <ul class="breadcrumbs">
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="#" @click.prevent="gotoPage('main')">
+          <router-link class="breadcrumbs__link" :to="{ name: 'main' }" >
             Каталог
-          </a>
+          </router-link>
         </li>
         <li class="breadcrumbs__item">
-          <a class="breadcrumbs__link" href="#" @click.prevent="gotoPage('main')">
+          <router-link class="breadcrumbs__link" :to="{name: 'main'}" >
             {{ category.title }}
-          </a>
+          </router-link>
         </li>
         <li class="breadcrumbs__item">
           <a class="breadcrumbs__link">
@@ -26,28 +26,6 @@
         <div class="pics__wrapper">
           <img width="570" height="570" :src="product.image" :alt="product.title">
         </div>
-<!--        <ul class="pics__list">-->
-<!--          <li class="pics__item">-->
-<!--            <a href="" class="pics__link pics__link&#45;&#45;current">-->
-<!--              <img width="98" height="98" src="img/phone-square-1.jpg" srcset="img/phone-square-1@2x.jpg 2x" alt="Название товара">-->
-<!--            </a>-->
-<!--          </li>-->
-<!--          <li class="pics__item">-->
-<!--            <a href="" class="pics__link">-->
-<!--              <img width="98" height="98" src="img/phone-square-2.jpg" srcset="img/phone-square-2@2x.jpg 2x" alt="Название товара">-->
-<!--            </a>-->
-<!--          </li>-->
-<!--          <li class="pics__item">-->
-<!--            <a href="" class="pics__link">-->
-<!--              <img width="98" height="98" src="img/phone-square-3.jpg" srcset="img/phone-square-3@2x.jpg 2x" alt="Название товара">-->
-<!--            </a>-->
-<!--          </li>-->
-<!--          <li class="pics__item">-->
-<!--            <a class="pics__link" href="#">-->
-<!--              <img width="98" height="98" src="img/phone-square-4.jpg" srcset="img/phone-square-4@2x.jpg 2x" alt="Название товара">-->
-<!--            </a>-->
-<!--          </li>-->
-<!--        </ul>-->
       </div>
 
       <div class="item__info">
@@ -56,7 +34,7 @@
           {{ product.title }}
         </h2>
         <div class="item__form">
-          <form class="form" action="#" method="POST">
+          <form class="form" action="#" method="POST" @submit.prevent="addToCart">
             <b class="item__price">
               {{ product.price | numberFormat }} ₽
             </b>
@@ -126,7 +104,7 @@
                   </svg>
                 </button>
 
-                <input type="text" value="1" name="count">
+                <input type="text" v-model.number="productAmount">
 
                 <button type="button" aria-label="Добавить один товар">
                   <svg width="12" height="12" fill="currentColor">
@@ -203,14 +181,18 @@ import gotoPage from '@/helpers/gotoPage';
 import numberFormat from '@/helpers/numberFormat';
 
 export default {
+  data() {
+    return {
+      productAmount: 1,
+    };
+  },
   name: 'ProductPage',
-  props: ['pageParams'],
   filters: {
     numberFormat,
   },
   computed: {
     product() {
-      return products.find((product) => product.id === this.pageParams.id);
+      return products.find((product) => product.id === +this.$route.params.id);
     },
     category() {
       return categories.find((category) => category.id === this.product.categoryId);
@@ -218,6 +200,12 @@ export default {
   },
   methods: {
     gotoPage,
+    addToCart() {
+      this.$store.commit(
+        'addProductToCard',
+        { productId: this.product.id, amount: this.productAmount },
+      );
+    },
   },
 };
 </script>
