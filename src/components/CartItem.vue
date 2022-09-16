@@ -20,11 +20,8 @@
 
       <input type="text" v-model.number="amount" name="count">
 
-      <button type="button" aria-label="Добавить один товар">
-        <svg width="10" height="10" fill="currentColor">
-          <use xlink:href="#icon-plus"></use>
-        </svg>
-      </button>
+      <ButtonPlus />
+
     </div>
 
     <b class="product__price">
@@ -42,9 +39,11 @@
 <script>
 import numberFormat from '@/helpers/numberFormat';
 import { mapMutations } from 'vuex';
+import ButtonPlus from '@/components/ButtonPlus.vue';
 
 export default {
   name: 'CartItem',
+  components: { ButtonPlus },
   filters: { numberFormat },
   props: ['item'],
   computed: {

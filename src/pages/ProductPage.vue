@@ -66,7 +66,7 @@
             </fieldset>
 
             <fieldset class="form__block">
-              <legend class="form__legend">Объемб в ГБ:</legend>
+              <legend class="form__legend">Объем в ГБ:</legend>
 
               <ul class="sizes sizes--primery">
                 <li class="sizes__item">
